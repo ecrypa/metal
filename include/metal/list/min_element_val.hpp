@@ -3,6 +3,8 @@
 
 #include "../config.hpp"
 #include "../lambda/apply.hpp"
+#include "../lambda/arg.hpp"
+#include "../lambda/bind.hpp"
 #include "../lambda/lambda.hpp"
 #include "../number/if.hpp"
 #include "../value/fold_left.hpp"
