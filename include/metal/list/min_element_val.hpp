@@ -16,11 +16,11 @@ struct _min_element_val {};
 
 template<template<typename...> class expr>
 struct _min_element_val<lambda<expr>> {
-  template<typename x, typename y>
-  using combiner = if_<expr<x, y>, x, y>;
-
   template<typename... vals>
-  using type = fold_left<lambda<combiner>, vals...>;
+  using type = fold_left<
+    bind<lambda<if_>, bind<lambda<expr>, _1, _2>, _1, _2>,
+    vals...
+  >;
 };
 
 }// detail

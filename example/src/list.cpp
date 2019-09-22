@@ -702,5 +702,68 @@ template<typename x, typename y>
 using larger = metal::number<(sizeof(x) > sizeof(y))>;
 IS_SAME(metal::min_element<vals, metal::lambda<larger>>, metal::number<1>);
 IS_SAME(metal::min_element_val<vals, metal::lambda<larger>>, char[4]);
+
+static_assert(
+  metal::is_invocable<
+  metal::lambda<metal::min_element>,
+  vals,
+  metal::lambda<larger>
+  >{},
+  ""
+);
+
+template<typename x, typename y, typename>
+using bad_comp_with_three_args = metal::number<(sizeof(x) > sizeof(y))>;
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::min_element>,
+  vals,
+  metal::lambda<bad_comp_with_three_args>
+  >{},
+  ""
+);
+
+template<typename x, typename y>
+using bad_comp_that_does_not_yield_a_number = metal::list<x, y>;
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::min_element>,
+  vals,
+  metal::lambda<bad_comp_that_does_not_yield_a_number>
+  >{},
+  ""
+);
+
+template<typename, typename>
+struct incomplete_comp;
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::min_element>,
+  vals,
+  metal::lambda<incomplete_comp>
+  >{},
+  ""
+);
+
+using not_a_comp_at_all = void;
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::min_element>,
+  vals,
+  not_a_comp_at_all
+  >{},
+  ""
+);
+
+using not_a_list = std::tuple<int, char>;
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::min_element>,
+  not_a_list,
+  metal::lambda<larger>
+  >{},
+  ""
+);
+
 /// [min_element]
 )
