@@ -678,3 +678,29 @@ IS_SAME(
 /// [accumulate]
 )
 #endif
+
+HIDE(
+/// [min_element]
+using nums = metal::numbers<4, 17, 2, -7, 15, -7, 0>;
+
+using comp_lt = metal::lambda<metal::less>;
+IS_SAME(metal::min_element<nums, comp_lt>, metal::number<3>);
+IS_SAME(metal::min_element_val<nums, comp_lt>, metal::number<-7>);
+
+using comp_gt = metal::lambda<metal::greater>;
+IS_SAME(metal::min_element<nums, comp_gt>, metal::number<1>);
+IS_SAME(metal::min_element_val<nums, comp_gt>, metal::number<17>);
+
+using vals = metal::list<char[3], char[4], char[1], char[1], char[2]>;
+
+template<typename x, typename y>
+using smaller = metal::number<(sizeof(x) < sizeof(y))>;
+IS_SAME(metal::min_element<vals, metal::lambda<smaller>>, metal::number<2>);
+IS_SAME(metal::min_element_val<vals, metal::lambda<smaller>>, char[1]);
+
+template<typename x, typename y>
+using larger = metal::number<(sizeof(x) > sizeof(y))>;
+IS_SAME(metal::min_element<vals, metal::lambda<larger>>, metal::number<1>);
+IS_SAME(metal::min_element_val<vals, metal::lambda<larger>>, char[4]);
+/// [min_element]
+)
