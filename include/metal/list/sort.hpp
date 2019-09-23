@@ -45,7 +45,7 @@ namespace metal {
     /// \snippet list.cpp sort
     ///
     /// ### See Also
-    /// \see list, reverse, rotate
+    /// \see list, min_element, reverse, rotate
     template<typename seq, typename lbd>
     using sort = detail::call<
         detail::_sort<lbd>::template type,
