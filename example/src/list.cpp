@@ -677,4 +677,362 @@ IS_SAME(
 );
 /// [accumulate]
 )
+
+HIDE(
+/// [nth_element]
+  template<typename x, typename y, typename>
+  using cmp = metal::less<x, y>;
+
+  static_assert(
+    !metal::is_invocable<
+    metal::lambda<metal::nth_element_val_randpivot::nth_element>,
+    metal::numbers<7, -2, 4, 1, 9>,
+    metal::number<0>,
+    metal::lambda<cmp>
+    >{},
+    ""
+  );
+
+  IS_SAME(
+    metal::nth_element_val_randpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<0>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<-2>
+  );
+  IS_SAME(
+    metal::nth_element_val_randpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<1>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<1>
+  );
+  IS_SAME(
+    metal::nth_element_val_randpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<2>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<4>
+  );
+  IS_SAME(
+    metal::nth_element_val_randpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<3>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<7>
+  );
+  IS_SAME(
+    metal::nth_element_val_randpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<4>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<9>
+  );
+/// [nth_element]
+)
+
+HIDE(
+/// [nth_element]
+  template<typename x, typename y, typename>
+  using cmp = metal::less<x, y>;
+
+  static_assert(
+    !metal::is_invocable<
+    metal::lambda<metal::nth_element_val_frontpivot::nth_element>,
+    metal::numbers<7, -2, 4, 1, 9>,
+    metal::number<0>,
+    metal::lambda<cmp>
+    >{},
+    ""
+  );
+
+  IS_SAME(
+    metal::nth_element_val_frontpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<0>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<-2>
+  );
+  IS_SAME(
+    metal::nth_element_val_frontpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<1>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<1>
+  );
+  IS_SAME(
+    metal::nth_element_val_frontpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<2>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<4>
+  );
+  IS_SAME(
+    metal::nth_element_val_frontpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<3>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<7>
+  );
+  IS_SAME(
+    metal::nth_element_val_frontpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<4>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<9>
+  );
+/// [nth_element]
+)
+
+HIDE(
+/// [nth_element]
+  template<typename x, typename y, typename>
+  using cmp = metal::less<x, y>;
+
+  static_assert(
+    !metal::is_invocable<
+    metal::lambda<metal::nth_element_val_backpivot::nth_element>,
+    metal::numbers<7, -2, 4, 1, 9>,
+    metal::number<0>,
+    metal::lambda<cmp>
+    >{},
+    ""
+  );
+
+  IS_SAME(
+    metal::nth_element_val_backpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<0>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<-2>
+  );
+  IS_SAME(
+    metal::nth_element_val_backpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<1>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<1>
+  );
+  IS_SAME(
+    metal::nth_element_val_backpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<2>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<4>
+  );
+  IS_SAME(
+    metal::nth_element_val_backpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<3>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<7>
+  );
+  IS_SAME(
+    metal::nth_element_val_backpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<4>,
+      metal::lambda<metal::less>
+    >,
+    metal::number<9>
+  );
+/// [nth_element]
+)
+
+HIDE(
+/// [nth_element]
+  template<typename x, typename y, typename>
+  using cmp = metal::less<x, y>;
+
+  static_assert(
+    !metal::is_invocable<
+    metal::lambda<metal::nth_element_list_backpivot::nth_element>,
+    metal::numbers<7, -2, 4, 1, 9>,
+    metal::number<0>,
+    metal::lambda<cmp>
+    >{},
+    ""
+  );
+
+  IS_SAME(
+    metal::nth_element_list_backpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<0>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 1, 7, 4, 9>
+  );
+
+  IS_SAME(
+    metal::nth_element_list_backpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<1>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 1, 7, 4, 9>
+  );
+
+  IS_SAME(
+    metal::nth_element_list_backpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<2>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 1, 4, 7, 9>
+  );
+
+  IS_SAME(
+    metal::nth_element_list_backpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<3>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 1, 4, 7, 9>
+  );
+  IS_SAME(
+    metal::nth_element_list_backpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<4>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<7, -2, 4, 1, 9>
+  );
+/// [nth_element]
+)
+
+HIDE(
+/// [nth_element]
+  template<typename x, typename y, typename>
+  using cmp = metal::less<x, y>;
+
+  static_assert(
+    !metal::is_invocable<
+    metal::lambda<metal::nth_element_list_frontpivot::nth_element>,
+    metal::numbers<7, -2, 4, 1, 9>,
+    metal::number<0>,
+    metal::lambda<cmp>
+    >{},
+    ""
+  );
+
+  IS_SAME(
+    metal::nth_element_list_frontpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<0>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 4, 1, 7, 9>
+  );
+
+  IS_SAME(
+    metal::nth_element_list_frontpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<1>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 1, 4, 7, 9>
+  );
+
+  IS_SAME(
+    metal::nth_element_list_frontpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<2>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 1, 4, 7, 9>
+  );
+
+  IS_SAME(
+    metal::nth_element_list_frontpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<3>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 4, 1, 7, 9>
+  );
+  IS_SAME(
+    metal::nth_element_list_frontpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<4>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 4, 1, 7, 9>
+  );
+/// [nth_element]
+)
+
+HIDE(
+/// [nth_element]
+  template<typename x, typename y, typename>
+  using cmp = metal::less<x, y>;
+
+  static_assert(
+    !metal::is_invocable<
+    metal::lambda<metal::nth_element_list_randpivot::nth_element>,
+    metal::numbers<7, -2, 4, 1, 9>,
+    metal::number<0>,
+    metal::lambda<cmp>
+    >{},
+    ""
+  );
+
+  IS_SAME(
+    metal::nth_element_list_randpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<0>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 7, 4, 1, 9>
+  );
+
+  IS_SAME(
+    metal::nth_element_list_randpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<1>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 1, 4, 7, 9>
+  );
+
+  IS_SAME(
+    metal::nth_element_list_randpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<2>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 1, 4, 7, 9>
+  );
+
+  IS_SAME(
+    metal::nth_element_list_randpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<3>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 1, 4, 7, 9>
+  );
+  IS_SAME(
+    metal::nth_element_list_randpivot::nth_element<
+      metal::numbers<7, -2, 4, 1, 9>,
+      metal::number<4>,
+      metal::lambda<metal::less>
+    >,
+    metal::numbers<-2, 1, 4, 7, 9>
+  );
+/// [nth_element]
+)
+
 #endif
