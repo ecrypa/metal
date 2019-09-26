@@ -35,6 +35,7 @@
 #include "list/nth_element_val_backpivot.hpp"
 #include "list/nth_element_val_frontpivot.hpp"
 #include "list/nth_element_val_randpivot.hpp"
+#include "list/nth_element_val_complicated.hpp"
 #include "list/partition.hpp"
 #include "list/powerset.hpp"
 #include "list/prepend.hpp"
