@@ -29,6 +29,7 @@
 #include "list/join.hpp"
 #include "list/list.hpp"
 #include "list/min_element.hpp"
+#include "list/min_element_fast.hpp"
 #include "list/min_element_slow.hpp"
 #include "list/none_of.hpp"
 #include "list/partition.hpp"
