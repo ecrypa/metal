@@ -873,4 +873,82 @@ IS_SAME(metal::v8::min_element<vals, metal::lambda<larger>>, const char[3]);
 /// [v8::min_element]
 )
 
+HIDE(
+/// [v9::min_element]
+using nums = metal::numbers<4, 42, 17, -7, 0>;
+
+using comp_lt = metal::lambda<metal::less>;
+IS_SAME(metal::v9::min_element<nums, comp_lt>, metal::number<-7>);
+
+using comp_gt = metal::lambda<metal::greater>;
+IS_SAME(metal::v9::min_element<nums, comp_gt>, metal::number<42>);
+
+template<class a, class b, class>
+using bad_comp_three_args = metal::less<a, b>;
+
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::v9::min_element>,
+  nums,
+  metal::lambda<bad_comp_three_args>
+  >{}, "");
+
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::v9::min_element>,
+  metal::list<>,
+  metal::lambda<metal::less>
+  >{}, "");
+
+using vals = metal::list<const char[3], char[1], char[1], char[3], const char[1]>;
+
+template<typename x, typename y>
+using smaller = metal::number<(sizeof(x) < sizeof(y))>;
+IS_SAME(metal::v9::min_element<vals, metal::lambda<smaller>>, char[1]);
+
+template<typename x, typename y>
+using larger = metal::number<(sizeof(x) > sizeof(y))>;
+IS_SAME(metal::v9::min_element<vals, metal::lambda<larger>>, const char[3]);
+/// [v9::min_element]
+)
+
+HIDE(
+/// [v10::min_element]
+using nums = metal::numbers<4, 42, 17, -7, 0>;
+
+using comp_lt = metal::lambda<metal::less>;
+IS_SAME(metal::v10::min_element<nums, comp_lt>, metal::number<-7>);
+
+using comp_gt = metal::lambda<metal::greater>;
+IS_SAME(metal::v10::min_element<nums, comp_gt>, metal::number<42>);
+
+template<class a, class b, class>
+using bad_comp_three_args = metal::less<a, b>;
+
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::v10::min_element>,
+  nums,
+  metal::lambda<bad_comp_three_args>
+  >{}, "");
+
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::v10::min_element>,
+  metal::list<>,
+  metal::lambda<metal::less>
+  >{}, "");
+
+using vals = metal::list<const char[3], char[1], char[1], char[3], const char[1]>;
+
+template<typename x, typename y>
+using smaller = metal::number<(sizeof(x) < sizeof(y))>;
+IS_SAME(metal::v10::min_element<vals, metal::lambda<smaller>>, char[1]);
+
+template<typename x, typename y>
+using larger = metal::number<(sizeof(x) > sizeof(y))>;
+IS_SAME(metal::v10::min_element<vals, metal::lambda<larger>>, const char[3]);
+/// [v10::min_element]
+)
+
 #endif

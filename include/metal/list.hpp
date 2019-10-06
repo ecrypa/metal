@@ -33,6 +33,8 @@
 #include "list/min_element.v6.alias_recursion_grouped.hpp"
 #include "list/min_element.v7.alias_fasttrack.hpp"
 #include "list/min_element.v8.foldlike.hpp"
+#include "list/min_element.v9.foldlike_tempsave.hpp"
+#include "list/min_element.v10.foldlike_indirection.hpp"
 #include "list/none_of.hpp"
 #include "list/partition.hpp"
 #include "list/powerset.hpp"
