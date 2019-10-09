@@ -10,14 +10,14 @@
 namespace metal {
     namespace v9 {
         namespace detail {
-	  template<class x, class y>
-	  struct _min_combiner {
-	    template<template<typename...> class comp>
-	    using type = if_<comp<y, x>, y, x>;
-	  };
+            template<class x, class y>
+            struct _min_combiner {
+                template<template<typename...> class comp>
+                using type = if_<comp<y, x>, y, x>;
+            };
 
-	  template<template<typename...> class comp, class x, class y>
-	  using c = typename _min_combiner<x, y>::template type<comp>;
+            template<template<typename...> class comp, class x, class y>
+            using c = typename _min_combiner<x, y>::template type<comp>;
 
             template<
                 class state,

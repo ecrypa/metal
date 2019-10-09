@@ -58,6 +58,27 @@ namespace metal {
         template<template<typename...> class expr, typename... vals>
         using call = expr<vals...>;
 #endif
+        namespace v12 {
+            template<class... vals>
+            struct _dcaller {
+                template<template<class...> class expr>
+                using type = expr<vals...>;
+            };
+
+            template<template<class...> class expr, class... vals>
+            using dcall = typename _dcaller<vals...>::template type<expr>;
+        }
+        namespace v14 {
+            template<bool>
+            struct _dcaller {
+                template<template<class...> class expr, class... vals>
+                using type = expr<vals...>;
+            };
+
+            template<template<class...> class expr, class... vals>
+            using dcall = typename _dcaller<!sizeof...(
+                vals)>::template type<expr, vals...>;
+        }
     }
     /// \endcond
 }

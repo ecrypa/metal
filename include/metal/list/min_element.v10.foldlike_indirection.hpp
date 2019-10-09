@@ -83,10 +83,9 @@ namespace metal {
                 /* clang-format on */
                 >
             struct _minimizer_10 {
-
                 template<
-		  template<template<class...> class, class, class> class c,
-		  template<typename...> class e>
+                    template<template<class...> class, class, class> class c,
+                    template<typename...> class e>
                 using type =
                     /* clang-format off */
 		c<e, c<e, c<e, c<e, c<e, c<e, c<e, c<e, c<e, c<e,
@@ -99,17 +98,16 @@ namespace metal {
             template<class state, class _00>
             struct _minimizer_1 {
                 template<
-		  template<template<class...> class, class, class> class c,
-		  template<typename...> class e>
-                using type =
-                    c<e, typename state::template type<c, e>, _00>;
+                    template<template<class...> class, class, class> class c,
+                    template<typename...> class e>
+                using type = c<e, typename state::template type<c, e>, _00>;
             };
 
             template<class state>
             struct _minimizer_0 {
                 template<
-		  template<template<class...> class, class, class> class,
-		  template<typename...> class>
+                    template<template<class...> class, class, class> class,
+                    template<typename...> class>
                 using type = identity<state>;
             };
 
@@ -215,7 +213,8 @@ namespace metal {
             template<template<class...> class comp>
             struct _min_element<lambda<comp>> {
                 template<class seq>
-                using type = typename min_element_impl<seq>::template type<_min_element_combiner, comp>;
+                using type = typename min_element_impl<seq>::template type<
+                    _min_element_combiner, comp>;
             };
 
         } // detail
