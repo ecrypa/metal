@@ -34,6 +34,8 @@
 #include "list/min_element.v13.dcaller.hpp"
 #include "list/min_element.v14.fast_dcall.hpp"
 #include "list/min_element.v15.invoke.hpp"
+#include "list/min_element.v16.ind.accumulate.hpp"
+#include "list/min_element.v17.ind.find.hpp"
 #include "list/min_element.v4.homf.hpp"
 #include "list/min_element.v5.alias_recursion.hpp"
 #include "list/min_element.v6.alias_recursion_grouped.hpp"
