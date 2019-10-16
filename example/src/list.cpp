@@ -1187,4 +1187,127 @@ IS_SAME(metal::v16::min_element<vals, metal::lambda<larger>>, metal::number<0>);
 /// [v16::min_element]
 )
 
+HIDE(
+/// [v17::min_element]
+using nums = metal::numbers<4, 42, 17, -7, 0>;
+
+using comp_lt = metal::lambda<metal::less>;
+IS_SAME(metal::v17::min_element<nums, comp_lt>, metal::number<3>);
+
+IS_SAME(metal::v17::min_element<metal::list<>, comp_lt>, metal::number<0>);
+
+using comp_gt = metal::lambda<metal::greater>;
+IS_SAME(metal::v17::min_element<nums, comp_gt>, metal::number<1>);
+
+template<class a, class b, class>
+using bad_comp_three_args = metal::less<a, b>;
+
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::v17::min_element>,
+  nums,
+  metal::lambda<bad_comp_three_args>
+  >{}, "");
+
+static_assert(
+  metal::is_invocable<
+  metal::lambda<metal::v17::min_element>,
+  metal::list<>,
+  metal::lambda<metal::less>
+  >{}, "");
+
+using vals = metal::list<const char[3], char[1], char[1], char[3], const char[1]>;
+
+template<typename x, typename y>
+using smaller = metal::number<(sizeof(x) < sizeof(y))>;
+IS_SAME(metal::v17::min_element<vals, metal::lambda<smaller>>, metal::number<1>);
+
+template<typename x, typename y>
+using larger = metal::number<(sizeof(x) > sizeof(y))>;
+IS_SAME(metal::v17::min_element<vals, metal::lambda<larger>>, metal::number<0>);
+/// [v17::min_element]
+)
+
+HIDE(
+/// [v18::min_element]
+using nums = metal::numbers<4, 42, 17, -7, 0>;
+
+using comp_lt = metal::lambda<metal::less>;
+IS_SAME(metal::v18::min_element<nums, comp_lt>, metal::number<3>);
+
+IS_SAME(metal::v18::min_element<metal::list<>, comp_lt>, metal::number<0>);
+
+using comp_gt = metal::lambda<metal::greater>;
+IS_SAME(metal::v18::min_element<nums, comp_gt>, metal::number<1>);
+
+template<class a, class b, class>
+using bad_comp_three_args = metal::less<a, b>;
+
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::v18::min_element>,
+  nums,
+  metal::lambda<bad_comp_three_args>
+  >{}, "");
+
+static_assert(
+  metal::is_invocable<
+  metal::lambda<metal::v18::min_element>,
+  metal::list<>,
+  metal::lambda<metal::less>
+  >{}, "");
+
+using vals = metal::list<const char[3], char[1], char[1], char[3], const char[1]>;
+
+template<typename x, typename y>
+using smaller = metal::number<(sizeof(x) < sizeof(y))>;
+IS_SAME(metal::v18::min_element<vals, metal::lambda<smaller>>, metal::number<1>);
+
+template<typename x, typename y>
+using larger = metal::number<(sizeof(x) > sizeof(y))>;
+IS_SAME(metal::v18::min_element<vals, metal::lambda<larger>>, metal::number<0>);
+/// [v18::min_element]
+)
+
+HIDE(
+/// [v19::min_element]
+using nums = metal::numbers<4, 42, 17, -7, 0>;
+
+using comp_lt = metal::lambda<metal::less>;
+IS_SAME(metal::v19::min_element<nums, comp_lt>, metal::number<3>);
+
+IS_SAME(metal::v19::min_element<metal::list<>, comp_lt>, metal::number<0>);
+
+using comp_gt = metal::lambda<metal::greater>;
+IS_SAME(metal::v19::min_element<nums, comp_gt>, metal::number<1>);
+
+template<class a, class b, class>
+using bad_comp_three_args = metal::less<a, b>;
+
+static_assert(
+  !metal::is_invocable<
+  metal::lambda<metal::v19::min_element>,
+  nums,
+  metal::lambda<bad_comp_three_args>
+  >{}, "");
+
+static_assert(
+  metal::is_invocable<
+  metal::lambda<metal::v19::min_element>,
+  metal::list<>,
+  metal::lambda<metal::less>
+  >{}, "");
+
+using vals = metal::list<const char[3], char[1], char[1], char[3], const char[1]>;
+
+template<typename x, typename y>
+using smaller = metal::number<(sizeof(x) < sizeof(y))>;
+IS_SAME(metal::v19::min_element<vals, metal::lambda<smaller>>, metal::number<1>);
+
+template<typename x, typename y>
+using larger = metal::number<(sizeof(x) > sizeof(y))>;
+IS_SAME(metal::v19::min_element<vals, metal::lambda<larger>>, metal::number<0>);
+/// [v19::min_element]
+)
+
 #endif

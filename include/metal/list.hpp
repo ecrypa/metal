@@ -36,6 +36,8 @@
 #include "list/min_element.v15.invoke.hpp"
 #include "list/min_element.v16.ind.accumulate.hpp"
 #include "list/min_element.v17.ind.find.hpp"
+#include "list/min_element.v18.ind.transpose.hpp"
+#include "list/min_element.v19.ind.transpose.hpp"
 #include "list/min_element.v4.homf.hpp"
 #include "list/min_element.v5.alias_recursion.hpp"
 #include "list/min_element.v6.alias_recursion_grouped.hpp"
