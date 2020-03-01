@@ -68,7 +68,10 @@ namespace metal {
             };
 
             template<class cond, class val>
-            struct _partition_filter {
+            struct _partition_filter {};
+
+            template<int_ n, class val>
+            struct _partition_filter<number<n>, val> {
                 using type = list<list<val>, list<>>;
             };
 
@@ -89,8 +92,9 @@ namespace metal {
             template<class... vals>
             struct _partition_impl<list<vals...>> {
                 template<template<class...> class expr>
-                using type = _partition_joiner<
-                    typename _partition_filter<expr<vals>, vals>::type...>;
+                using type =
+                    typename _partition_joiner<typename _partition_filter<
+                        expr<vals>, vals>::type...>::type;
             };
 
             template<class lbd>

@@ -68,7 +68,10 @@ namespace metal {
             };
 
             template<class cond>
-            struct _partition_filter {
+            struct _partition_filter {};
+
+            template<int_ n>
+            struct _partition_filter<number<n>> {
                 template<class val>
                 using type = list<list<val>, list<>>;
             };
